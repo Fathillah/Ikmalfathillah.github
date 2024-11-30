@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100dvh;
+            display: flex;
+            background-color: #f7f7f7;
+        }
+
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 300px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .sidebar h1 {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .sidebar h1 span {
+            color: #e74c3c;
+            font-size: 14px;
+            display: block;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .contact-links a {
+            display: block;
+            padding: 10px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* border: 1px solid #ddd; */
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            transition-duration: .5s;
+        }
+
+        .contact-links a:hover {
+            transition-duration: .5s;
+            background-color: #e0e0e0;
+            color: black;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            overflow-y: auto;
+            overflow-x:hidden;
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            max-width: 1200px;
+        }
+
+        .image-box {
+            max-width: 400px;
+            max-height: 800px;
+            flex: 1 1 300px;
+            height: 100%;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 5px 10px 10px #0004;
+        }
+
+        .text-box {
+            padding: 1rem;
+            height: 100%;
+            overflow-y: auto;
+            gap: 20px;
+            flex: 2 1;
+            display: flex;
+            overflow-x:hidden;
+            flex-direction: column;
+        }
+
+        .text-box h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .text-box p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            color: white;
+            background-color: #ffc107;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #e0a800;
+        }
+
+        .leftright {
+            gap: 1rem;
+            display: flex;
+        }
+
+        .leftright .card{
+            flex:1;
+            height: 100%;
+        }
+
+        .card{
+            
+            padding: 20px;
+            background: #eee;
+            border-radius: 20px;
+        }
+        ul,
+        ol {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 20px;
+        }
+
+        ul li,
+        ol li {
+            background: #fff8;
+            padding: 1rem;
+            border-radius: 1rem;
+            transition-duration: .5s;
+            list-style: none;
+        }
+
+        ul li:hover,
+        ol li:hover {
+            transition-duration: .5s;
+            background: #f8f8f8;
+            scale: 1.1;
+
+        }
+/* 
+        ul.custom-markers li {
+            list-style-type: none;
+            position: relative;
+        }
+
+        ul.custom-markers li::before {
+            content: "✔";
+            color: green;
+            position: absolute;
+            left: -20px;
+        } */
+
+        /* Table Styling */
+        .experience-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            border-radius: 1rem;
+            gap: 20px;
+        }
+
+        .experience-table th,
+        .experience-table td {
+            border-radius: .4rem;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .experience-table th {
+            background-color: #eee;
+        }
+
+        .experience-table td {
+            background: linear-gradient(#fafafa, #f0f0f0);
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <h1>Ikmal Fathillah <span>Student</span></h1>
+        </div>
+        <div class="contact-links">
+            <a href="index.html">HOME</a>
+            <a href="Gallery.html">GALLERY</a>
+            <a href="Family.html">FAMILY</a>
+            <a href="education.html">EDUCATION</a>
+            <a href="Experience.html">EXPERIENCE</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="image-box">
+                <img src="Mal.jpg" alt="Ikmal">
+            </div>
+            <div class="text-box">
+                <h1>Annyong disana! Ikmal disni 0_0</h1>
+                <p>Saya Ikmal Fathillah merupakan seorang atlet Para Olahraga Selangor dalam kategori Masalah
+                    Penglihatan T13.Saya berumur 20 tahun dan tarikh lahir saya adalah 24/2/2004.</p>
+                <div class="buttons">
+                    <a
+                        href="https://www.hmetro.com.my/arena/lain/2024/09/1137736/fobia-diejek-ikmal-fathillah-bangkit-lepas-geram-di-kuching">
+                        <button class="button">Artikel</button>
+                    </a>
+                    <a href="https://www.instagram.com/ikmalfathillah_/profilecard/?igsh=MTVvcDVtMndpZmxqdA==">
+                        <button class="button">Contact Me</button>
+                    </a>
+                </div>
+
+                <div class="leftright">
+                    <div class="card">
+                        <h2>My Achievements</h2>
+                        <ol>
+                            <li>Memenangi tiga pingat emas di Temasya sukan Parasukma Sarawak</li>
+                            <li>Menjuarai kejohanan Karisma UITM bola sepak</li>
+                            <li>Menjuarai Kejohanan futsal AMD</li>
+                        </ol>
+                    </div>
+                    <div class="card">
+                        <h2>Hobbies</h2>
+                        <ul>
+                            <li>Berlari</li>
+                            <li>Bermain bola</li>
+                            <li>Traveling</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2>Skills</h2>
+                    <ul class="custom-markers">
+                        <li>Softspoken</li>
+                        <li>pandai rampas awek orang</li>
+                        <li>pandai tackle awek</li>
+                    </ul>
+                </div>
+
+                <!-- Experience Table -->
+                <h2>Work Experience</h2>
+                <table class="experience-table">
+                    <tr>
+                        <th>Kerja</th>
+                        <th>Company</th>
+                        <th>Tahun</th>
+                    </tr>
+                    <tr>
+                        <td>Data Analisis</td>
+                        <td>UTW SDN BHD</td>
+                        <td>2024</td>
+                    </tr>
+                    <tr>
+                        <td>Baker</td>
+                        <td>Roti Boy</td>
+                        <td>2023</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Tambahkan jam digital
+        const clockContainer = document.createElement('div');
+        clockContainer.style.marginTop = '20px';
+        clockContainer.style.fontSize = '18px';
+        clockContainer.style.color = '#e74c3c';
+        clockContainer.style.fontWeight = 'bold';
+        document.querySelector('.sidebar').prepend(clockContainer);
+
+        function updateClock() {
+            const now = new Date();
+            clockContainer.textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Tambahkan animasi pada teks di sidebar
+        const sidebarTitle = document.querySelector('.sidebar h1');
+        sidebarTitle.style.animation = 'pulse 2s infinite';
+        const style = document.createElement('style');
+        style.textContent = `
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    `;
+        document.head.appendChild(style);
+
+        // Tambahkan notifikasi
+        const notification = document.createElement('div');
+        notification.textContent = 'Selamat datang ke laman Ikmal!';
+        notification.style.position = 'absolute';
+        notification.style.bottom = '20px';
+        notification.style.left = '20px';
+        notification.style.padding = '10px';
+        notification.style.backgroundColor = '#e74c3c';
+        notification.style.color = 'white';
+        notification.style.borderRadius = '5px';
+        notification.style.boxShadow = '0 0 5px rgba(0,0,0,0.3)';
+        notification.style.cursor = 'pointer';
+        notification.addEventListener('click', () => notification.remove());
+        document.querySelector('.sidebar').appendChild(notification);
+    </script>
+</body>
+
+</html>
